@@ -1,0 +1,15 @@
+@media(max-width:768px){
+
+  .sidebar{
+    width:80px;
+  }
+
+  .main-content{
+    margin-left:80px;
+  }
+
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+}

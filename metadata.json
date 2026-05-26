@@ -1,0 +1,6 @@
+{
+  "name": "Jerry CRM",
+  "description": "A clean, modern enterprise CRM package with smart pipeline tools, contacts ledger, interactive analytics, and leads boards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

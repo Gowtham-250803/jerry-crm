@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CRM Dashboard</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- Sidebar -->
+
+  <aside class="sidebar">
+
+    <div class="logo">
+      FlowCRM
+    </div>
+
+    <ul class="menu">
+      <li class="active">Dashboard</li>
+      <li>Contacts</li>
+      <li>Leads</li>
+      <li>Tasks</li>
+    </ul>
+
+  </aside>
+
+  <!-- Main Content -->
+
+  <main class="main-content">
+
+    <!-- Topbar -->
+
+    <header class="topbar">
+
+      <input type="text" placeholder="Search">
+
+      <div class="profile">
+        Rahul Sharma
+      </div>
+
+    </header>
+
+    <!-- Cards -->
+
+    <section class="cards">
+
+      <div class="card">
+        <h3>Total Leads</h3>
+        <p>248</p>
+      </div>
+
+      <div class="card">
+        <h3>Revenue</h3>
+        <p>₹4,52,000</p>
+      </div>
+
+      <div class="card">
+        <h3>Deals</h3>
+        <p>32</p>
+      </div>
+
+      <div class="card">
+        <h3>Tasks</h3>
+        <p>12</p>
+      </div>
+
+    </section>
+
+    <!-- Chart -->
+
+    <section class="chart-section">
+
+      <div class="chart-card">
+        <canvas id="revenueChart"></canvas>
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>
