@@ -1,0 +1,130 @@
+{
+  "users": [
+    {
+      "name": "Rahul Sharma",
+      "email": "rahul@pixelcraft.in",
+      "password": "Password123"
+    },
+    {
+      "name": "Gowtham Jerry",
+      "email": "gowthamgc2516@gmail.com",
+      "password": "Gc123456"
+    }
+  ],
+  "contacts": [
+    {
+      "id": "1",
+      "name": "Rajesh Kumar",
+      "company": "Pixel Craft India",
+      "status": "Active",
+      "email": "rajesh@pixelcraft.in"
+    },
+    {
+      "id": "2",
+      "name": "Priya Sharma",
+      "company": "Mumbai Design Studio",
+      "status": "Lead",
+      "email": "priya@designstudio.in"
+    },
+    {
+      "id": "3",
+      "name": "Amit Patel",
+      "company": "Patel Tech Services",
+      "status": "Active",
+      "email": "amit@pateltech.co.in"
+    },
+    {
+      "id": "4",
+      "name": "Ananya Rao",
+      "company": "Delta Finance Bengaluru",
+      "status": "Inactive",
+      "email": "ananya@deltafinance.co.in"
+    }
+  ],
+  "leads": [
+    {
+      "id": "1",
+      "title": "Website Design & Development",
+      "value": 150000,
+      "status": "In Progress",
+      "company": "Pixel Craft India"
+    },
+    {
+      "id": "2",
+      "title": "CRM Software Upgrade",
+      "value": 350000,
+      "status": "New Leads",
+      "company": "Mumbai Design Studio"
+    },
+    {
+      "id": "3",
+      "title": "Custom Payment Integration",
+      "value": 85000,
+      "status": "Deals Won",
+      "company": "Patel Tech Services"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "1",
+      "description": "Discuss pricing with Priya Sharma",
+      "dueDate": "2026-05-30",
+      "priority": "High",
+      "status": "In Progress"
+    },
+    {
+      "id": "2",
+      "description": "Send contract copy to Rajesh Kumar",
+      "dueDate": "2026-06-03",
+      "priority": "Medium",
+      "status": "Pending"
+    },
+    {
+      "id": "3",
+      "description": "Product demo call with Delta team",
+      "dueDate": "2026-05-28",
+      "priority": "Low",
+      "status": "Completed"
+    }
+  ],
+  "campaigns": [
+    {
+      "id": "cmp-1",
+      "name": "Festive Season Marketing Offer",
+      "status": "active",
+      "sentCount": 1240,
+      "openRate": 64.2,
+      "clickRate": 18.5,
+      "subject": "Special 20% discount on software services this festive season!",
+      "targetSegment": "High-Value Leads"
+    },
+    {
+      "id": "cmp-2",
+      "name": "Product Feature Beta Launch",
+      "status": "scheduled",
+      "sentCount": 0,
+      "openRate": 0,
+      "clickRate": 0,
+      "subject": "Be the first to try out our new customer support features",
+      "scheduledTime": "2026-06-01 10:00 AM",
+      "targetSegment": "Active Customers"
+    },
+    {
+      "id": "cmp-3",
+      "name": "Old Lead Follow-up Alert",
+      "status": "completed",
+      "sentCount": 840,
+      "openRate": 41.8,
+      "clickRate": 9.3,
+      "subject": "Are you still looking for a CRM solution?",
+      "targetSegment": "Stalled Prospects"
+    }
+  ],
+  "settings": {
+    "enterpriseName": "Pixel Craft India",
+    "currencySymbol": "₹",
+    "enableAI": true,
+    "leadAutoAssign": true,
+    "notifyDevs": false
+  }
+}
