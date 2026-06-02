@@ -43,17 +43,10 @@
   ],
   "leads": [
     {
-      "id": "1",
-      "title": "Website Design & Development",
-      "value": 150000,
-      "status": "In Progress",
-      "company": "Pixel Craft India"
-    },
-    {
       "id": "2",
       "title": "CRM Software Upgrade",
       "value": 350000,
-      "status": "New Leads",
+      "status": "In Progress",
       "company": "Mumbai Design Studio"
     },
     {
@@ -70,14 +63,14 @@
       "description": "Discuss pricing with Priya Sharma",
       "dueDate": "2026-05-30",
       "priority": "High",
-      "status": "In Progress"
+      "status": "Completed"
     },
     {
       "id": "2",
       "description": "Send contract copy to Rajesh Kumar",
       "dueDate": "2026-06-03",
       "priority": "Medium",
-      "status": "Pending"
+      "status": "Completed"
     },
     {
       "id": "3",
