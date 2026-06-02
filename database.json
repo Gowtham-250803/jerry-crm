@@ -43,6 +43,13 @@
   ],
   "leads": [
     {
+      "id": "lead-1780418055058",
+      "title": "Customer support",
+      "value": 4500,
+      "status": "New Leads",
+      "company": "Altruist pvt ltd"
+    },
+    {
       "id": "2",
       "title": "CRM Software Upgrade",
       "value": 350000,
