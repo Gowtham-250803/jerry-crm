@@ -1,10 +1,6 @@
 {
   "users": [
-    {
-      "name": "Rahul Sharma",
-      "email": "rahul@pixelcraft.in",
-      "password": "Password123"
-    },
+  
     {
       "name": "Gowtham Jerry",
       "email": "gowthamgc2516@gmail.com",
