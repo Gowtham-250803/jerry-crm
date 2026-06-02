@@ -347,18 +347,17 @@ function renderAuthScreen(container: HTMLElement) {
             }
             <div class="space-y-1">
               <label class="block text-[10px] font-bold text-zinc-400 uppercase tracking-wide">Email Address</label>
-              <input type="email" id="auth-email" placeholder="rahul@pixelcraft.in" value="rahul@pixelcraft.in" required class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-xs text-zinc-900 placeholder-zinc-350 focus:outline-none focus:border-zinc-800 transition-all font-semibold" />
+              <input type="email" id="auth-email" placeholder="rahul@pixelcraft.in" required class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-xs text-zinc-900 placeholder-zinc-350 focus:outline-none focus:border-zinc-800 transition-all font-semibold" />
             </div>
             <div class="space-y-1">
               <label class="block text-[10px] font-bold text-zinc-400 uppercase tracking-wide">Password</label>
-              <input type="password" id="auth-password" value="Password123" placeholder="••••••••" required class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-xs text-zinc-900 placeholder-zinc-350 focus:outline-none focus:border-zinc-800 transition-all font-semibold" />
+              <input type="password" id="auth-password" placeholder="••••••••" required class="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-xs text-zinc-900 placeholder-zinc-350 focus:outline-none focus:border-zinc-800 transition-all font-semibold" />
             </div>
 
             <button type="submit" class="w-full bg-zinc-900 hover:bg-zinc-800 border-b-2 border-zinc-950 active:border-b-0 text-white rounded-xl py-3.5 text-[11px] font-black uppercase tracking-wider shadow-xs active:scale-98 transition-all mt-6 cursor-pointer leading-none">
               ${isLoginMode ? 'Login to CRM' : 'Create My Account'}
             </button>
           </form>
-
           <div class="border-t border-zinc-150 pt-4 text-center">
             <button id="auth-toggle-mode" class="text-[10px] font-black uppercase tracking-wider text-zinc-500 hover:text-zinc-900 transition-all cursor-pointer">
               ${isLoginMode ? "First time here? Create an account instantly" : "Already have a business account? Login here"}
