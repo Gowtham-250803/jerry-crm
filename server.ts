@@ -27,9 +27,6 @@ const ai = new GoogleGenAI({
   }
 });
 
-const app = express();
-const PORT = 3500; // Vite proxies to 3000, we run on 3000 (wait, let's keep it 3000 as requested by environment constraints)
-const SE_PORT = process.env.PORT || 3001;
 
 app.use(express.json());
 
