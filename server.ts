@@ -1,8 +1,10 @@
+import 'dotenv/config';
 import express from 'express';
 import path from 'path';
 import fs from 'fs';
 import { createServer as createViteServer } from 'vite';
 import { GoogleGenAI, Type } from '@google/genai';
+console.log('SUPABASE_URL:', process.env.SUPABASE_URL);
 import { supabase } from './src/lib/supabase';
 
 (async () => {
