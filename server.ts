@@ -3,6 +3,15 @@ import path from 'path';
 import fs from 'fs';
 import { createServer as createViteServer } from 'vite';
 import { GoogleGenAI, Type } from '@google/genai';
+import { supabase } from './src/lib/supabase';
+
+(async () => {
+  const { data, error } = await supabase
+    .from('contacts')
+    .select('*');
+
+  console.log('Supabase Test:', data, error);
+})();
 
 // Initialize server-side Gemini API
 const ai = new GoogleGenAI({
