@@ -52,8 +52,26 @@
       "company": "Mumbai Design Studio"
     }
   ],
-  "tasks": [],
+  "tasks": [
+    {
+      "id": "task-1780490405159",
+      "description": "I nned to call owners",
+      "dueDate": "2026-06-04",
+      "priority": "High",
+      "status": "Pending"
+    }
+  ],
   "campaigns": [
+    {
+      "id": "cmp-1780490493382",
+      "name": "Flipkart Offesr",
+      "status": "draft",
+      "sentCount": 0,
+      "openRate": 0,
+      "clickRate": 0,
+      "subject": "discount",
+      "targetSegment": "High-Value Leads"
+    },
     {
       "id": "cmp-2",
       "name": "Product Feature Beta Launch",
