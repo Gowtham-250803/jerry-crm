@@ -1,6 +1,5 @@
 {
   "users": [
-  
     {
       "name": "Gowtham Jerry",
       "email": "gowthamgc2516@gmail.com",
@@ -60,29 +59,7 @@
       "company": "Patel Tech Services"
     }
   ],
-  "tasks": [
-    {
-      "id": "1",
-      "description": "Discuss pricing with Priya Sharma",
-      "dueDate": "2026-05-30",
-      "priority": "High",
-      "status": "Completed"
-    },
-    {
-      "id": "2",
-      "description": "Send contract copy to Rajesh Kumar",
-      "dueDate": "2026-06-03",
-      "priority": "Medium",
-      "status": "Completed"
-    },
-    {
-      "id": "3",
-      "description": "Product demo call with Delta team",
-      "dueDate": "2026-05-28",
-      "priority": "Low",
-      "status": "Completed"
-    }
-  ],
+  "tasks": [],
   "campaigns": [
     {
       "id": "cmp-1",
