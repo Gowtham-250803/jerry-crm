@@ -184,44 +184,65 @@ app.get('/api/crm/data', (req, res) => {
   });
 });
 
-// Contacts (Customers) APIs
-// Get Contacts
+// GET contacts
 app.get('/api/crm/contacts', async (req, res) => {
   const { data, error } = await supabase
     .from('contacts')
     .select('*')
     .order('created_at', { ascending: false });
 
-  if (error) return res.status(500).json(error);
+  if (error) {
+    console.error(error);
+    return res.status(500).json({ error: error.message });
+  }
 
   res.json(data);
 });
 
-// Add Contact
+
+// ADD contact
 app.post('/api/crm/contacts', async (req, res) => {
+  const { name, company, email, status } = req.body;
+
+  if (!name || !email) {
+    return res.status(400).json({ error: "Name and email required" });
+  }
+
   const { data, error } = await supabase
     .from('contacts')
-    .insert([{
-      name: req.body.name,
-      company: req.body.company,
-      email: req.body.email,
-      status: req.body.status || 'Lead'
-    }])
-    .select();
+    .insert([
+      {
+        name,
+        company,
+        email,
+        status: status || 'Lead'
+      }
+    ])
+    .select()
+    .single();
 
-  if (error) return res.status(500).json(error);
+  if (error) {
+    console.error(error);
+    return res.status(500).json({ error: error.message });
+  }
 
-  res.status(201).json(data[0]);
+  res.status(201).json(data);
 });
 
-// Delete Contact
+
+// DELETE contact
 app.delete('/api/crm/contacts/:id', async (req, res) => {
+  const id = req.params.id;
+
   const { error } = await supabase
     .from('contacts')
     .delete()
-    .eq('id', req.params.id);
+    .eq('id', id);
 
-  if (error) return res.status(500).json(error);
+  if (error) {
+    console.error(error);
+    return res.status(500).json({ error: error.message });
+  }
 
   res.json({ success: true });
 });

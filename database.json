@@ -41,36 +41,19 @@
       "id": "lead-1780418055058",
       "title": "Customer support",
       "value": 4500,
-      "status": "New Leads",
+      "status": "In Progress",
       "company": "Altruist pvt ltd"
     },
     {
       "id": "2",
       "title": "CRM Software Upgrade",
       "value": 350000,
-      "status": "Deals Won",
+      "status": "New Leads",
       "company": "Mumbai Design Studio"
-    },
-    {
-      "id": "3",
-      "title": "Custom Payment Integration",
-      "value": 85000,
-      "status": "Deals Won",
-      "company": "Patel Tech Services"
     }
   ],
   "tasks": [],
   "campaigns": [
-    {
-      "id": "cmp-1",
-      "name": "Festive Season Marketing Offer",
-      "status": "active",
-      "sentCount": 1240,
-      "openRate": 64.2,
-      "clickRate": 18.5,
-      "subject": "Special 20% discount on software services this festive season!",
-      "targetSegment": "High-Value Leads"
-    },
     {
       "id": "cmp-2",
       "name": "Product Feature Beta Launch",
