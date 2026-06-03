@@ -185,25 +185,45 @@ app.get('/api/crm/data', (req, res) => {
 });
 
 // Contacts (Customers) APIs
-app.post('/api/crm/contacts', (req, res) => {
-  const db = readDB();
-  const newContact = {
-    id: `contact-${Date.now()}`,
-    name: req.body.name,
-    company: req.body.company,
-    status: req.body.status || 'Lead',
-    email: req.body.email
-  };
-  db.contacts.unshift(newContact);
-  writeDB(db);
-  res.status(201).json(newContact);
+// Get Contacts
+app.get('/api/crm/contacts', async (req, res) => {
+  const { data, error } = await supabase
+    .from('contacts')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  if (error) return res.status(500).json(error);
+
+  res.json(data);
 });
 
-app.delete('/api/crm/contacts/:id', (req, res) => {
-  const db = readDB();
-  db.contacts = db.contacts.filter(c => c.id !== req.params.id);
-  writeDB(db);
-  res.json({ success: true, message: 'Customer record deleted successfully.' });
+// Add Contact
+app.post('/api/crm/contacts', async (req, res) => {
+  const { data, error } = await supabase
+    .from('contacts')
+    .insert([{
+      name: req.body.name,
+      company: req.body.company,
+      email: req.body.email,
+      status: req.body.status || 'Lead'
+    }])
+    .select();
+
+  if (error) return res.status(500).json(error);
+
+  res.status(201).json(data[0]);
+});
+
+// Delete Contact
+app.delete('/api/crm/contacts/:id', async (req, res) => {
+  const { error } = await supabase
+    .from('contacts')
+    .delete()
+    .eq('id', req.params.id);
+
+  if (error) return res.status(500).json(error);
+
+  res.json({ success: true });
 });
 
 // Leads (Sales Pipeline) APIs
@@ -241,84 +261,84 @@ app.delete('/api/crm/leads/:id', (req, res) => {
   res.json({ success: true });
 });
 
-// Tasks (To-Dos) APIs
-app.post('/api/crm/tasks', (req, res) => {
-  const db = readDB();
-  const newTask = {
-    id: `task-${Date.now()}`,
-    description: req.body.description,
-    dueDate: req.body.dueDate,
-    priority: req.body.priority || 'Medium',
-    status: req.body.status || 'Pending'
-  };
-  db.tasks.unshift(newTask);
-  writeDB(db);
-  res.status(201).json(newTask);
-});
-
-app.patch('/api/crm/tasks/:id', (req, res) => {
-  const db = readDB();
-  db.tasks = db.tasks.map(task => {
-    if (task.id === req.params.id) {
-      return { ...task, ...req.body };
-    }
-    return task;
+  // Tasks (To-Dos) APIs
+  app.post('/api/crm/tasks', (req, res) => {
+    const db = readDB();
+    const newTask = {
+      id: `task-${Date.now()}`,
+      description: req.body.description,
+      dueDate: req.body.dueDate,
+      priority: req.body.priority || 'Medium',
+      status: req.body.status || 'Pending'
+    };
+    db.tasks.unshift(newTask);
+    writeDB(db);
+    res.status(201).json(newTask);
   });
-  writeDB(db);
-  const updatedTask = db.tasks.find(t => t.id === req.params.id);
-  res.json(updatedTask);
-});
 
-app.delete('/api/crm/tasks/:id', (req, res) => {
-  const db = readDB();
-  db.tasks = db.tasks.filter(t => t.id !== req.params.id);
-  writeDB(db);
-  res.json({ success: true });
-});
-
-// Campaigns (Offers) APIs
-app.post('/api/crm/campaigns', (req, res) => {
-  const db = readDB();
-  const newCmp = {
-    id: `cmp-${Date.now()}`,
-    name: req.body.name,
-    status: 'draft',
-    sentCount: 0,
-    openRate: 0,
-    clickRate: 0,
-    subject: req.body.subject,
-    targetSegment: req.body.targetSegment
-  };
-  db.campaigns.unshift(newCmp);
-  writeDB(db);
-  res.status(201).json(newCmp);
-});
-
-app.post('/api/crm/campaigns/:id/launch', (req, res) => {
-  const db = readDB();
-  db.campaigns = db.campaigns.map(c => {
-    if (c.id === req.params.id) {
-      return {
-        ...c,
-        status: 'active',
-        sentCount: c.sentCount + 1500,
-        openRate: Math.round((45 + Math.random() * 25) * 10) / 10,
-        clickRate: Math.round((8 + Math.random() * 12) * 10) / 10
-      };
-    }
-    return c;
+  app.patch('/api/crm/tasks/:id', (req, res) => {
+    const db = readDB();
+    db.tasks = db.tasks.map(task => {
+      if (task.id === req.params.id) {
+        return { ...task, ...req.body };
+      }
+      return task;
+    });
+    writeDB(db);
+    const updatedTask = db.tasks.find(t => t.id === req.params.id);
+    res.json(updatedTask);
   });
-  writeDB(db);
-  const launched = db.campaigns.find(c => c.id === req.params.id);
-  res.json(launched);
-});
 
-app.delete('/api/crm/campaigns/:id', (req, res) => {
-  const db = readDB();
-  db.campaigns = db.campaigns.filter(c => c.id !== req.params.id);
-  writeDB(db);
-  res.json({ success: true });
-});
+  app.delete('/api/crm/tasks/:id', (req, res) => {
+    const db = readDB();
+    db.tasks = db.tasks.filter(t => t.id !== req.params.id);
+    writeDB(db);
+    res.json({ success: true });
+  });
+
+  // Campaigns (Offers) APIs
+  app.post('/api/crm/campaigns', (req, res) => {
+    const db = readDB();
+    const newCmp = {
+      id: `cmp-${Date.now()}`,
+      name: req.body.name,
+      status: 'draft',
+      sentCount: 0,
+      openRate: 0,
+      clickRate: 0,
+      subject: req.body.subject,
+      targetSegment: req.body.targetSegment
+    };
+    db.campaigns.unshift(newCmp);
+    writeDB(db);
+    res.status(201).json(newCmp);
+  });
+
+  app.post('/api/crm/campaigns/:id/launch', (req, res) => {
+    const db = readDB();
+    db.campaigns = db.campaigns.map(c => {
+      if (c.id === req.params.id) {
+        return {
+          ...c,
+          status: 'active',
+          sentCount: c.sentCount + 1500,
+          openRate: Math.round((45 + Math.random() * 25) * 10) / 10,
+          clickRate: Math.round((8 + Math.random() * 12) * 10) / 10
+        };
+      }
+      return c;
+    });
+    writeDB(db);
+    const launched = db.campaigns.find(c => c.id === req.params.id);
+    res.json(launched);
+  });
+
+  app.delete('/api/crm/campaigns/:id', (req, res) => {
+    const db = readDB();
+    db.campaigns = db.campaigns.filter(c => c.id !== req.params.id);
+    writeDB(db);
+    res.json({ success: true });
+  });
 
 // Settings APIs
 app.post('/api/crm/settings', (req, res) => {
